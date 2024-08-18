@@ -1,5 +1,5 @@
 <template>
-  <v-btn size="15px" @click="deleteTask"><v-icon size="x-large" icon="mdi-delete-circle"></v-icon></v-btn>
+  <v-btn icon="mdi-delete-circle" variant="plain" @click="deleteTask"></v-btn>
 </template>
 
 <script setup lang="ts">

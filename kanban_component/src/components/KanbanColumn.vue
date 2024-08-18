@@ -3,9 +3,9 @@
     <v-card variant="outlined">
       <v-sheet @dragover.prevent @drop="drop($event)">
         <v-row class="ma-1 pa-1">
-          <h2 class="font-bold mb-2">{{ status }}</h2>
+          <h2 class="font-bold mb-2 text-decoration-underline">{{ status }}</h2>
         </v-row>
-        <v-row style="min-height: 550px;">
+        <v-row style="min-height: 525px; min-width: 275px;">
           <KanbanTask
             v-for="task in tasks"
             :key="task.id"

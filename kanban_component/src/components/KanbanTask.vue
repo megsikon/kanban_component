@@ -3,13 +3,34 @@
     <v-card class="pa-1 ma-1" variant="outlined">
       <v-row no-gutters align-content="end">
         <v-col >
-          <v-text-field min-width="200px" v-model="task.title" clearable label="Task title" variant="underlined"></v-text-field>
+          <v-text-field
+            min-width="200px"
+            v-model="task.title"
+            clearable
+            label="Task title"
+            variant="underlined">
+          </v-text-field>
         </v-col>
         <v-col cols="1">
           <DeleteTaskButton @delete-task="deleteTask"/>
         </v-col>
-        <v-textarea flat v-model="task.description" clearable label="Describe your task"></v-textarea>
       </v-row>
+      <v-row>
+        <v-autocomplete
+          chips
+          label="Assigned"
+          v-model="task.assigned"
+          :items="['Adam', 'Bob', 'Eve', 'Magnus']"
+          multiple
+          variant="outlined">
+        </v-autocomplete>
+      </v-row>
+      <v-textarea
+        flat
+        v-model="task.description"
+        clearable
+        label="Describe your task">
+      </v-textarea>
     </v-card>
   </v-container>
 </template>

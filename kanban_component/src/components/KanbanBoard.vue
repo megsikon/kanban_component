@@ -25,9 +25,9 @@ import AddTaskButton from './AddTaskButton.vue';
 //import AddColumn from './AddColumn.vue';
 
 const tasks = ref([
-  { id: 1, title: 'Styling', status: 'To Do', description: '' },
-  { id: 2, title: 'Functionality', status: 'In Progress', description: '' },
-  { id: 3, title: 'Setup', status: 'Done', description: '' },
+  { id: 1, title: 'Styling', status: 'To Do', assigned: [], description: '' },
+  { id: 2, title: 'Functionality', status: 'In Progress', assigned: ['Magnus'], description: '' },
+  { id: 3, title: 'Setup', status: 'Done', assigned: [], description: '' },
 ]);
 
 const columnStatuses = ref(['New', 'To Do', 'In Progress', 'Done']);
@@ -39,6 +39,7 @@ const addNewTask = (taskName: string) => {
     id: Date.now(),
     title: taskName,
     status: 'New',
+    assigned: [],
     description: '',
   };
   tasks.value.push(newTask);
