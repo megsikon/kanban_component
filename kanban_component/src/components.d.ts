@@ -7,9 +7,15 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    AppFooter: typeof import('./components/AppFooter.vue')['default']
+    AddColumn: typeof import('./components/AddColumn.vue')['default']
+    AddTaskButton: typeof import('./components/AddTaskButton.vue')['default']
+    DeleteTaskButton: typeof import('./components/DeleteTaskButton.vue')['default']
+    EditTaskName: typeof import('./components/EditTaskName.vue')['default']
+    Header: typeof import('./components/Header.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     KanbanBoard: typeof import('./components/KanbanBoard.vue')['default']
+    KanbanColumn: typeof import('./components/KanbanColumn.vue')['default']
+    KanbanTask: typeof import('./components/KanbanTask.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

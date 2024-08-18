@@ -4,6 +4,9 @@
  * Bootstraps Vuetify and other plugins then mounts the App`
  */
 
+// Style
+import style from 'src/assets/style.css'
+
 // Plugins
 import { registerPlugins } from '@/plugins'
 
