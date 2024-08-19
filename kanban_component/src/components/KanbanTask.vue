@@ -1,18 +1,18 @@
 <template>
-  <v-container draggable="true" @dragstart="dragStart($event, task)">
+  <v-container draggable="true" @dragstart="dragStart($event)">
     <v-card class="pa-1 ma-1" variant="outlined">
       <v-row no-gutters align-content="end">
-        <v-col >
+        <v-col>
           <v-text-field
             min-width="200px"
             v-model="task.title"
             clearable
             label="Task title"
-            variant="underlined">
-          </v-text-field>
+            variant="underlined"
+          />
         </v-col>
         <v-col cols="1">
-          <DeleteTaskButton @delete-task="deleteTask"/>
+          <DeleteTaskButton @delete-task="deleteTask(task.id)" />
         </v-col>
       </v-row>
       <v-row>
@@ -22,15 +22,15 @@
           v-model="task.assigned"
           :items="['Adam', 'Bob', 'Eve', 'Magnus']"
           multiple
-          variant="outlined">
-        </v-autocomplete>
+          variant="outlined"
+        />
       </v-row>
       <v-textarea
         flat
         v-model="task.description"
         clearable
-        label="Describe your task">
-      </v-textarea>
+        label="Describe your task"
+      />
     </v-card>
   </v-container>
 </template>
@@ -44,11 +44,11 @@ const props = defineProps({
 
 const emit = defineEmits(['delete-task']);
 
-const deleteTask = (id: number) => {
-  emit('delete-task', id);
+const deleteTask = () => {
+  emit('delete-task', props.task.id);
 };
 
-const dragStart = (event: any, task: any) => {
-  event.dataTransfer.setData('text/plain', task.id);
+const dragStart = (event: DragEvent) => {
+  event.dataTransfer?.setData('text/plain', props.task.id.toString());
 };
 </script>

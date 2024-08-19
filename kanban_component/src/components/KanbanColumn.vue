@@ -10,8 +10,8 @@
             v-for="task in tasks"
             :key="task.id"
             :task="task"
-            @delete-task="deleteTask(task.id)">
-          </KanbanTask>
+            @delete-task="deleteTask"
+          />
         </v-row>
       </v-sheet>
     </v-card>
@@ -32,8 +32,10 @@ const deleteTask = (id: number) => {
   emit('delete-task', id);
 };
 
-const drop = (event: any) => {
-  const taskId = event.dataTransfer.getData('text/plain');
-  emit('move-task', parseInt(taskId, 10), props.status);
+const drop = (event: DragEvent) => {
+  const taskId = event.dataTransfer?.getData('text/plain');
+  if (taskId) {
+    emit('move-task', parseInt(taskId, 10), props.status);
+  }
 };
 </script>
